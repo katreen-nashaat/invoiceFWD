@@ -81,6 +81,12 @@ ArrayList<Invoicemaster>objheader;
                         case "saveall":
                                      savefile();
                                  break;
+                             case "addinvoiceline":
+                         addinvoiceline();
+                         break;
+                        case "deleteinvoiceline":
+                                    deleteinvoiceline();
+                                 break;
              }
         //JOptionPane.showInputDialog("dddddd");
         
@@ -100,7 +106,7 @@ objdetails=new ArrayList<>();
 objheader=new ArrayList<>();
 
     if(inviceheadpath==null&&invicedetalpath==null)
-    {
+    {JOptionPane.showConfirmDialog(fram, "add invoice line then invoice master ");
         JFileChooser fich=new JFileChooser();
        if(fich.showOpenDialog(null)==JFileChooser.APPROVE_OPTION);
        {
@@ -241,7 +247,8 @@ fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoi
             {
         
             ArrayList<Invoicedetails> listofparentdtl=master.getLines();
-                for(int i=0;i<listofparentdtl.size();i++)
+                 int rowcount=fram.getjTable2().getModel().getRowCount()-1;
+                for(int i=0;i<rowcount;i++)
             {
                 fram.getjTable2().getModel().setValueAt(null,i,0);
                 fram.getjTable2().getModel().setValueAt(null,i,1);
@@ -324,7 +331,7 @@ fram.getjTable1().getModel().setValueAt(objheader.get(i).getInvoicedate(), i, 2)
 fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoicetotal()), i, 3);
 
 }
-                JOptionPane.showMessageDialog(null,"added succesfully ");
+                JOptionPane.showMessageDialog(null,"added succesfully  ");
            
          
      }
@@ -524,6 +531,137 @@ fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoi
             Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
         }
 }*/
+      public  void addinvoiceline()
+     {
+         JPanel panel = new JPanel(new GridLayout(5, 3));
+         JLabel itemnamel=new JLabel();
+            JLabel customeridl=new JLabel();
+            JTextField price= new JTextField(10);
+        itemnamel.setText("item name");
+          customeridl.setText("customer id");
+            JLabel pricel=new JLabel();
+           pricel.setText("price");
+      JTextField itemname = new JTextField(10);
+         JLabel countl=new JLabel();
+           pricel.setText("price");
+           countl.setText("count");
+      JTextField count= new JTextField(10);
+     
+    
+       JTextField customerid= new JTextField(10);
+        panel.add(customeridl);
+      panel.add(customerid);
+            panel.add(itemnamel);
+             panel.add(itemname);
+      panel.add(pricel);
+       panel.add(price);
+        panel.add(countl);
+       panel.add(count);
+       
+       
+     JOptionPane.showMessageDialog(null,panel);
+     
+      
+     Invoicedetails detail=new Invoicedetails();
+    detail.setName(itemname.getText());
+      detail.setCount(Integer.parseInt(count.getText()));
+       detail.setInvoicenumber(Integer.parseInt(customerid.getText()));
+           detail.setPrice(Double.parseDouble(price.getText()));
+
+     
+           /*for(int i=0;i<objdetails.size();i++)
+            {
+                fram.getjTable2().getModel().setValueAt(null,i,0);
+                fram.getjTable2().getModel().setValueAt(null,i,1);
+                fram.getjTable2().getModel().setValueAt(null,i,2);  
+                fram.getjTable2().getModel().setValueAt(null,i,3);  
+            }*/
+          objdetails.add(detail);
+          /* for(int i=0;i<objheader.size();i++)
+{ 
+          
+fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getCustomernumber()), i, 0);
+fram.getjTable1().getModel().setValueAt(objheader.get(i).getCustomername(), i, 1);
+fram.getjTable1().getModel().setValueAt(objheader.get(i).getInvoicedate(), i, 2);
+fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoicetotal()), i, 3);
+
+}*/
+          for(int i=0;i<objheader.size();i++)
+          { Invoicemaster objmaster=objheader.get(i);
+          objmaster.setLines(getmylines(objdetails,objmaster.getCustomernumber()));
+          objmaster.total();
+               
+          }
+           JOptionPane.showMessageDialog(null," item added succesfully reselect invoice master ");
+         
+     }
+       public void deleteinvoiceline()
+     {
+         String[][] str;
+         int viewRow = fram.getjTable2().getSelectedRow();
+          
+
+        if ( viewRow != -1) {
+
+            int columnIndex = 0;
+
+          
+            int modelRow = fram.getjTable2().convertRowIndexToModel(viewRow);
+Invoicedetails details=new Invoicedetails();
+         
+            Object modelvalue = fram.getjTable2().getModel().getValueAt(modelRow, columnIndex);
+            int invoicenumber=Integer.parseInt(modelvalue.toString()); 
+            
+                  details.setInvoicenumber(invoicenumber);
+            details.setCount(Integer.parseInt(fram.getjTable2().getModel().getValueAt(modelRow,3).toString()));
+            details.setPrice(Double.parseDouble(fram.getjTable2().getModel().getValueAt(modelRow,2).toString()));
+            details.setName(fram.getjTable2().getModel().getValueAt(modelRow,1).toString());
+                       if(modelvalue!=null)
+           {
+               /* for(int i=0;i<objheader.size();i++)
+            {
+                fram.getjTable1().getModel().setValueAt(null,i,0);
+                fram.getjTable1().getModel().setValueAt(null,i,1);
+                fram.getjTable1().getModel().setValueAt(null,i,2);
+                fram.getjTable1().getModel().setValueAt(null,i,3);
+            }*/
+                        
+             //master=getmaster(Integer.parseInt(modelvalue.toString()));
+                      for(int i=0;i<objdetails.size();i++)
+          { Invoicedetails objdtl=objdetails.get(i);
+          if(objdtl.getInvoicenumber()==details.getInvoicenumber()&&objdtl.getName()==details.getName()&&objdtl.getPrice()==details.getPrice()&&objdtl.getCount()==details.getCount())
+                  {   
+                      details=objdtl;
+                       objdetails.remove(details);
+                  }        
+                  
+               
+          }
+           // objdetails.remove(details);
+               ArrayList<Invoicedetails> inv=objdetails;
+              
+           for(int i=0;i<objheader.size();i++)
+          { Invoicemaster objmaster=objheader.get(i);
+          objmaster.setLines(getmylines(objdetails,objmaster.getCustomernumber()));
+          objmaster.total();
+               
+          }
+            /*for(int i=0;i<objheader.size();i++)
+{ 
+          
+fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getCustomernumber()), i, 0);
+fram.getjTable1().getModel().setValueAt(objheader.get(i).getCustomername(), i, 1);
+fram.getjTable1().getModel().setValueAt(objheader.get(i).getInvoicedate(), i, 2);
+fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoicetotal()), i, 3);
+}*/
+
+            
+           }
+           
+           
+     }
+        JOptionPane.showConfirmDialog(fram, "deleted succesfully reselct invoice master to view changes  ");
+}
      public void savefile()
      {
          BufferedWriter br=null;

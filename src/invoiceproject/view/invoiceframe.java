@@ -64,6 +64,12 @@ public class invoiceframe extends javax.swing.JFrame {
         invoicedate = new javax.swing.JTextField();
         customername = new javax.swing.JTextField();
         total = new javax.swing.JTextField();
+        addline = new javax.swing.JButton();
+        addline.setActionCommand("addinvoiceline");
+        addline.addActionListener(action);
+        deleteline = new javax.swing.JButton();
+        deleteline.setActionCommand("deleteinvoiceline");
+        deleteline.addActionListener(action);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -93,6 +99,12 @@ public class invoiceframe extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -103,6 +115,13 @@ public class invoiceframe extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -129,6 +148,15 @@ public class invoiceframe extends javax.swing.JFrame {
             }
         });
 
+        addline.setText("Add line ");
+
+        deleteline.setText("Delete line");
+        deleteline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletelineActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("load");
@@ -145,16 +173,6 @@ public class invoiceframe extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(Addinvoice)
-                .addGap(58, 58, 58)
-                .addComponent(deleteinvoice)
-                .addGap(146, 146, 146)
-                .addComponent(savedetail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
-                .addComponent(canceldetail)
-                .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,6 +193,22 @@ public class invoiceframe extends javax.swing.JFrame {
                             .addComponent(customername)
                             .addComponent(total))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(Addinvoice)
+                .addGap(58, 58, 58)
+                .addComponent(deleteinvoice)
+                .addGap(146, 146, 146)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addline)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deleteline))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(savedetail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                        .addComponent(canceldetail)))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +236,11 @@ public class invoiceframe extends javax.swing.JFrame {
                             .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addline)
+                    .addComponent(deleteline))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Addinvoice)
                     .addComponent(deleteinvoice)
@@ -221,6 +259,10 @@ public class invoiceframe extends javax.swing.JFrame {
     private void invoicenumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicenumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_invoicenumberActionPerformed
+
+    private void deletelineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletelineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deletelineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,9 +315,11 @@ public class invoiceframe extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Addinvoice;
+    private javax.swing.JButton addline;
     private javax.swing.JButton canceldetail;
     private javax.swing.JTextField customername;
     private javax.swing.JButton deleteinvoice;
+    private javax.swing.JButton deleteline;
     private javax.swing.JTextField invoicedate;
     private javax.swing.JTextField invoicenumber;
     private javax.swing.JLabel jLabel1;
