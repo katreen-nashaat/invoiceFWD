@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -54,7 +54,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="408" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -84,19 +84,10 @@
               <Component id="Addinvoice" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="deleteinvoice" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="addline" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="deleteline" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="savedetail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="243" max="32767" attributes="0"/>
-                      <Component id="canceldetail" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+              <Component id="addline" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="deleteline" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -134,17 +125,12 @@
                       <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addline" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deleteline" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Addinvoice" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deleteinvoice" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="savedetail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="canceldetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addline" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteline" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -166,25 +152,6 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteinvoice.setActionCommand(&quot;deleteinvoice&quot;);&#xd;&#xa;deleteinvoice.addActionListener(action);&#xd;&#xa;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="savedetail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Save"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="savedetailActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="savedetail.setActionCommand(&quot;savedetails&quot;);&#xd;&#xa;savedetail.addActionListener(action);&#xd;&#xa;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="canceldetail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="canceldetail.setActionCommand(&quot;canceldetail&quot;);&#xd;&#xa;canceldetail.addActionListener(action);&#xd;&#xa;"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

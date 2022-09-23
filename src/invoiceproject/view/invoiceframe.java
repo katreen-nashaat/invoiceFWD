@@ -44,12 +44,6 @@ public class invoiceframe extends javax.swing.JFrame {
         deleteinvoice = new javax.swing.JButton();
         deleteinvoice.setActionCommand("deleteinvoice");
         deleteinvoice.addActionListener(action);
-        savedetail = new javax.swing.JButton();
-        savedetail.setActionCommand("savedetails");
-        savedetail.addActionListener(action);
-        canceldetail = new javax.swing.JButton();
-        canceldetail.setActionCommand("canceldetail");
-        canceldetail.addActionListener(action);
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -84,15 +78,6 @@ public class invoiceframe extends javax.swing.JFrame {
         Addinvoice.setLabel("Add invoice");
 
         deleteinvoice.setText("Delete invoice");
-
-        savedetail.setText("Save");
-        savedetail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savedetailActionPerformed(evt);
-            }
-        });
-
-        canceldetail.setText("Cancel");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,7 +159,7 @@ public class invoiceframe extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -198,16 +183,10 @@ public class invoiceframe extends javax.swing.JFrame {
                 .addComponent(Addinvoice)
                 .addGap(58, 58, 58)
                 .addComponent(deleteinvoice)
-                .addGap(146, 146, 146)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(addline)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deleteline))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(savedetail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
-                        .addComponent(canceldetail)))
+                .addGap(149, 149, 149)
+                .addComponent(addline)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteline)
                 .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
@@ -236,25 +215,17 @@ public class invoiceframe extends javax.swing.JFrame {
                             .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addline)
-                    .addComponent(deleteline))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Addinvoice)
                     .addComponent(deleteinvoice)
-                    .addComponent(savedetail)
-                    .addComponent(canceldetail))
+                    .addComponent(addline)
+                    .addComponent(deleteline))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void savedetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savedetailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_savedetailActionPerformed
 
     private void invoicenumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicenumberActionPerformed
         // TODO add your handling code here:
@@ -301,7 +272,7 @@ public class invoiceframe extends javax.swing.JFrame {
               //String y="E:\\FWD\\sales-invoice-generator\\Sales Invoice Generator\\InvoiceLine.csv";
                  String x="src\\invoiceproject\\InvoiceHeader.csv";
               String y="src\\invoiceproject\\InvoiceLine.csv";
-              fram.action.load(x, y);
+             // fram.action.load(x, y);
           
 
 
@@ -316,7 +287,6 @@ public class invoiceframe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Addinvoice;
     private javax.swing.JButton addline;
-    private javax.swing.JButton canceldetail;
     private javax.swing.JTextField customername;
     private javax.swing.JButton deleteinvoice;
     private javax.swing.JButton deleteline;
@@ -334,7 +304,6 @@ public class invoiceframe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JButton savedetail;
     private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 
