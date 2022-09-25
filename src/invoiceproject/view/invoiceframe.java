@@ -309,13 +309,13 @@ public class invoiceframe extends javax.swing.JFrame {
 
    public actions action=new actions(this);
 
-    public JButton getCanceldetail() {
+   /* public JButton getCanceldetail() {
         return canceldetail;
     }
 
     public void setCanceldetail(JButton canceldetail) {
         this.canceldetail = canceldetail;
-    }
+    }*/
 
     public JTextField getCustomername() {
         return customername;
@@ -349,13 +349,13 @@ public class invoiceframe extends javax.swing.JFrame {
         this.invoicenumber = invoicenumber;
     }
 
-    public JButton getSavedetail() {
+    /*public JButton getSavedetail() {
         return savedetail;
     }
 
     public void setSavedetail(JButton savedetail) {
         this.savedetail = savedetail;
-    }
+    }*/
 
     public JTextField getTotal() {
         return total;
