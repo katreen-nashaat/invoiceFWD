@@ -1,0 +1,4 @@
+kindly add more details for the issue 
+I tested it and when i click load button then select invoiceline sheet then invoice master sheet the data loaded successfully in ivoice header table. 
+I olso ensured that the project copy that found with the review is the latest version .
+Thank you in advance . 
