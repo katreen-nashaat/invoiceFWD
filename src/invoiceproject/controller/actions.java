@@ -79,7 +79,7 @@ ArrayList<Invoicemaster>objheader;
                          save();
                          break;
                         case "saveall":
-                                     savefile();
+                                     savefiletest();
                                  break;
                              case "addinvoiceline":
                          addinvoiceline();
@@ -662,7 +662,7 @@ fram.getjTable1().getModel().setValueAt(String.valueOf(objheader.get(i).getInvoi
      }
         JOptionPane.showConfirmDialog(fram, "deleted succesfully reselct invoice master to view changes  ");
 }
-     public void savefile()
+     /*public void savefile()
      {
          BufferedWriter br=null;
         try {
@@ -741,8 +741,95 @@ sb.append("\n");
         }
         JOptionPane.showConfirmDialog(fram, "saved succesfully");
      }
+   */
+
+ public void savefiletest()
+     {
+            String headerspath="E:\\FWD\\InvoiceHeader.csv";
+              String linepath="E:\\FWD\\InvoiceLine.csv";
+         BufferedWriter br=null;
+         BufferedWriter brdet=null;
+        try {
+            br = new BufferedWriter(new FileWriter(headpath));
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+StringBuilder sb = new StringBuilder();
+String str[][]=new String[objheader.size()][4];
+ArrayList<Invoicemaster> mas=objheader;
+for(int i=0;i<objheader.size();i++)
+{ 
+             str[i][0]=String.valueOf(objheader.get(i).getCustomernumber());
+        str[i][1]=objheader.get(i).getCustomername();
+            str[i][2]=objheader.get(i).getInvoicedate();
+             str[i][3]= String.valueOf(objheader.get(i).getInvoicetotal());
+
+}
+for ( String[] element : str) {
+sb.append(element[0]);
+sb.append(",");
+sb.append(element[1]);
+sb.append(",");
+sb.append(element[2]);
+sb.append(",");
+sb.append("\n");
+
+}
+
+        try {
+            br.write(sb.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        try {
+            br.close();
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            brdet = new BufferedWriter(new FileWriter(detailspath));
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+StringBuilder sbdet = new StringBuilder();
+String detstr[][]=new String[objdetails.size()][4];
+for(int i=0;i<objdetails.size();i++)
+{ 
+             detstr[i][0]=String.valueOf(objdetails.get(i).getInvoicenumber());
+        detstr[i][1]=objdetails.get(i).getName();
+           detstr[i][2]=String.valueOf(objdetails.get(i).getPrice());
+             detstr[i][3]= String.valueOf(objdetails.get(i).getCount());
+
+}
+for ( String[] element : detstr) {
+sbdet.append(element[0]);
+sbdet.append(",");
+sbdet.append(element[1]);
+sbdet.append(",");
+sbdet.append(element[2]);
+sbdet.append(",");
+sbdet.append(element[3]);
+sbdet.append(",");
+sbdet.append("\n");
+
+}
+
+        try {
+            brdet.write(sbdet.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            brdet.close();
+        } catch (IOException ex) {
+            Logger.getLogger(actions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showConfirmDialog(fram, "saved succesfully");
+     }
    
 }
+
  /*  try {
                 FileInputStream fis=new FileInputStream(detailFile);
                 int size=fis.available();

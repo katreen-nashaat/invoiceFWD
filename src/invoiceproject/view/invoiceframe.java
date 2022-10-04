@@ -272,6 +272,7 @@ public class invoiceframe extends javax.swing.JFrame {
               //String y="E:\\FWD\\sales-invoice-generator\\Sales Invoice Generator\\InvoiceLine.csv";
                  String x="src\\invoiceproject\\InvoiceHeader.csv";
               String y="src\\invoiceproject\\InvoiceLine.csv";
+ 
              // fram.action.load(x, y);
           
 
